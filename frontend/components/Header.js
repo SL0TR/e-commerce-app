@@ -15,14 +15,13 @@ Router.onRouteChangeError = () => {
 }
 
 const Logo = styled.h1`
-  font-size: 4rem;
-  margin-left: 2rem;
+  margin-bottom: 0;
+  margin-left: 1.5rem;
+  margin-top: 1.5rem;
   position: relative;
   z-index: 2;
-  transform: skew(-7deg);
 
   a {
-    padding: 0.5rem 1rem;
     background: ${props => props.theme.primary};
     color: white;
     text-transform: uppercase;
@@ -38,11 +37,27 @@ const Logo = styled.h1`
 
 const StyledHeader = styled.header`
   .bar {
-    border-bottom: 10px solid ${props => props.theme.black};
+    box-shadow: 0px 1px 3px 2px rgba(0,0,0, .1);
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     align-items: stretch;
+
+    .nav-logo {
+      height: 5.3rem;
+      width: 5.3rem;
+      border-radius: 50%;
+      padding: .5rem;
+      border: 1px solid ${props => props.theme.primary};
+
+      &:hover {
+        transition: all .3s;
+        cursor: pointer;
+        transform: scale(1.03);
+        padding: .1rem;
+      }
+
+    }
 
     @media (max-width: 1300px) {
       grid-template-columns: 1fr;
@@ -64,7 +79,7 @@ const Header = () => (
     <div className="bar">
     <Logo>
       <Link href="/">
-        <a >E-commerce App</a>
+        <img className="nav-logo" src="/static/ecommerce-icon-2.png" alt=""/>
       </Link>
     </Logo>
       <Nav />

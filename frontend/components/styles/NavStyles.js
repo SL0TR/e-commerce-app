@@ -22,20 +22,9 @@ const NavStyles = styled.ul`
       font-size: 10px;
       padding: 0 10px;
     }
-    &:before {
-      content: '';
-      width: 2px;
-      background: ${props => props.theme.lightgrey};
-      height: 100%;
-      left: 0;
-      position: absolute;
-      transform: skew(-20deg);
-      top: 0;
-      bottom: 0;
-    }
     &:after {
-      height: 2px;
-      background: red;
+      height: 3px;
+      background: ${props => props.theme.primary};
       content: '';
       width: 0;
       position: absolute;

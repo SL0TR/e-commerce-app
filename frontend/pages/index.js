@@ -1,6 +1,6 @@
 const Home = props => (
   <div>
-    <p>Hey!</p>
+    <h1>Hey!</h1>
   </div>
 );
 

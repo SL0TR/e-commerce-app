@@ -29,12 +29,16 @@ const theme = {
 
 
 injectGlobal`
-  @font-face {
+  /* @font-face {
     font-family: 'radnika_next';
     src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
-  }
+  } */
+  
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto');
+
+
 
   html {
     box-sizing: border-box;
@@ -49,12 +53,16 @@ injectGlobal`
     margin: 0;
     font-size: 1.5rem;
     line-height: 2;
-    font-family: 'radnika_next';
+    font-family: 'Roboto', sans-serif;
   }
 
   a {
     text-decoration: none;
     color: ${theme.black}
+  }
+  
+  h1,h2,h3,h4,h5 {
+    font-family: 'Open Sans', sans-serif;
   }
 
 
