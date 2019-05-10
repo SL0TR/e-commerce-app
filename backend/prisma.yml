@@ -1,4 +1,4 @@
-datamodel: datamodel.prisma
+datamodel: datamodel.graphql
 endpoint: ${env:PRISMA_ENDPOINT}
 # secret: ${env:PRISMA_SECRET}
 
