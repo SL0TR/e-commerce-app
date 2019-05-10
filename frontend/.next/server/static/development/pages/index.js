@@ -324,7 +324,7 @@ var Center = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withCo
 var ItemsList = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "Items__ItemsList",
   componentId: "tikday-1"
-})(["display:grid;grid-template-columns:1fr 1fr;grid-gap:6rem;max-width:", ";margin:0 auto;"], function (props) {
+})(["display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));grid-gap:6rem;max-width:", ";margin:0 auto;"], function (props) {
   return props.theme.maxWidth;
 });
 
@@ -423,9 +423,7 @@ __webpack_require__.r(__webpack_exports__);
 var Item = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.div.withConfig({
   displayName: "ItemStyles__Item",
   componentId: "sc-16pk14u-0"
-})(["background:white;border:1px solid ", ";box-shadow:", ";position:relative;display:flex;flex-direction:column;img{width:100%;height:400px;object-fit:cover;}p{font-size:12px;line-height:2;font-weight:300;flex-grow:1;padding:0 3rem;font-size:1.5rem;}.buttonList{display:grid;width:100%;border-top:1px solid ", ";grid-template-columns:repeat(auto-fit,minmax(100px,1fr));grid-gap:1px;background:", ";& > *{background:white;border:0;font-size:1rem;padding:1rem;}}"], function (props) {
-  return props.theme.offWhite;
-}, function (props) {
+})(["background:white;box-shadow:", ";border-radius:2rem;position:relative;display:flex;flex-direction:column;z-index:1;overflow:hidden;img{width:100%;height:400px;object-fit:cover;}p{font-size:12px;line-height:2;font-weight:300;flex-grow:1;padding:0 3rem;font-size:1.5rem;}.buttonList{display:grid;width:100%;border-top:1px solid ", ";grid-template-columns:repeat(auto-fit,minmax(100px,1fr));grid-gap:1px;background:", ";position:relative;& > *{background:white;cursor:pointer;border:0;font-size:1rem;padding:1rem;}}&:hover{transition:all .3s ease-out;transform:scale(1.05);box-shadow:0 12px 24px 0 rgba(0,0,0,0.07);}"], function (props) {
   return props.theme.bs;
 }, function (props) {
   return props.theme.lightgrey;
@@ -451,8 +449,8 @@ __webpack_require__.r(__webpack_exports__);
 var PriceTag = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.span.withConfig({
   displayName: "PriceTag",
   componentId: "nwbk6t-0"
-})(["background:", ";transform:rotate(3deg);color:white;font-weight:600;padding:5px;line-height:1;font-size:3rem;display:inline-block;position:absolute;top:-3px;right:-3px;"], function (props) {
-  return props.theme.red;
+})(["background:", ";transform:rotate(3deg);color:white;font-weight:600;padding:5px;line-height:1;font-size:3rem;display:inline-block;position:absolute;top:-3px;right:-3px;z-index:5;"], function (props) {
+  return props.theme.primary;
 });
 /* harmony default export */ __webpack_exports__["default"] = (PriceTag);
 
@@ -474,7 +472,7 @@ var Title = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.h3.withConf
   displayName: "Title",
   componentId: "sc-16nq74k-0"
 })(["margin:0 1rem;text-align:center;transform:skew(-5deg) rotate(-1deg);margin-top:-3rem;text-shadow:2px 2px 0 rgba(0,0,0,0.1);a{background:", ";display:inline;line-height:1.3;font-size:4rem;text-align:center;color:white;padding:0 1rem;}"], function (props) {
-  return props.theme.red;
+  return props.theme.orange;
 });
 /* harmony default export */ __webpack_exports__["default"] = (Title);
 

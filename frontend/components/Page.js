@@ -22,7 +22,7 @@ const theme = {
   orange: '#D07118',
   pink: '#C66C98',
   black: '#393939',
-  maxWidth: '1000px',
+  maxWidth: '1140px',
   lightgrey: '#E1E1E1',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
 }
