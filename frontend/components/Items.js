@@ -24,7 +24,7 @@ const Center = styled.div`
 
 const ItemsList = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-gap: 6rem;
   max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;

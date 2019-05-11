@@ -10,6 +10,9 @@ const Item = styled.div`
   flex-direction: column;
   z-index: 1;
   overflow: hidden;
+  /* width: 33rem; */
+  /* margin: 2rem 1rem; */
+
   .item-thumb {
     width: 100%;
     padding-top: 78%;

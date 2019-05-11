@@ -42,6 +42,8 @@ const StyledHeader = styled.header`
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     align-items: stretch;
+    /* background-color: ${props => props.theme.primary}; */
+
 
     .nav-logo {
       height: 5.3rem;
