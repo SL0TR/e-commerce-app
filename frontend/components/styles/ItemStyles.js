@@ -42,15 +42,26 @@ const Item = styled.div`
       border: none;
       background: none;
       cursor: pointer;
-      max-width: 15rem;
       margin: 1rem auto;
       margin-bottom: 1.5rem;
-      background-color: ${props => props.theme.pink};
-      padding: .75rem 2.5rem;
+      background-color: ${props => props.theme.primary};
+      padding: 1.5rem 1.5rem;
+      padding-right: 4.5rem;
       color: #eee;
       border-radius: .3rem;
       font-weight: bold;
+      position: relative;
       text-transform: uppercase;
+
+      &::after {
+        content: "+";
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: inherit;
+        font-weight: inherit;
+      }
 
     }
   }
