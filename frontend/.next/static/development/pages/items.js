@@ -71,18 +71,20 @@ function (_Component) {
           lineNumber: 17
         },
         __self: this
-      }, item.image && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "https://picsum.photos/200/300",
-        alt: item.title,
+      }, item.image && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "item-thumb",
+        style: {
+          backgroundImage: "url(\"https://picsum.photos/300/300\")"
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 19
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_Title__WEBPACK_IMPORTED_MODULE_2__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 19
+          lineNumber: 20
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
@@ -94,65 +96,44 @@ function (_Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 20
+          lineNumber: 21
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 24
+          lineNumber: 25
         },
         __self: this
-      }, item.title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_styles_PriceTag__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__["default"])(item.price)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-title",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 27
+          lineNumber: 29
         },
         __self: this
-      }, Object(_lib_formatMoney__WEBPACK_IMPORTED_MODULE_6__["default"])(item.price)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, item.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "card-desc",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 28
+          lineNumber: 30
         },
         __self: this
       }, item.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "buttonList",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 29
+          lineNumber: 31
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(next_link__WEBPACK_IMPORTED_MODULE_5___default.a, {
-        href: {
-          pathname: "update",
-          query: {
-            id: item.id
-          }
-        },
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "add-cart--btn",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 30
+          lineNumber: 38
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 34
-        },
-        __self: this
-      }, "Edit ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 36
-        },
-        __self: this
-      }, "Add to Cart"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 37
-        },
-        __self: this
-      }, "Delete")));
+      }, "Add to Cart")));
     }
   }]);
 
@@ -328,12 +309,10 @@ __webpack_require__.r(__webpack_exports__);
 var Item = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div.withConfig({
   displayName: "ItemStyles__Item",
   componentId: "sc-16pk14u-0"
-})(["background:white;box-shadow:", ";border-radius:2rem;position:relative;display:flex;flex-direction:column;z-index:1;overflow:hidden;img{width:100%;height:400px;object-fit:cover;}p{font-size:12px;line-height:2;font-weight:300;flex-grow:1;padding:0 3rem;font-size:1.5rem;}.buttonList{display:grid;width:100%;border-top:1px solid ", ";grid-template-columns:repeat(auto-fit,minmax(100px,1fr));grid-gap:1px;background:", ";position:relative;& > *{background:white;cursor:pointer;border:0;font-size:1rem;padding:1rem;}}&:hover{transition:all .3s ease-out;transform:scale(1.05);box-shadow:0 12px 24px 0 rgba(0,0,0,0.07);}"], function (props) {
+})(["background:white;box-shadow:", ";border-radius:.5rem;position:relative;display:flex;flex-direction:column;z-index:1;overflow:hidden;.item-thumb{width:100%;padding-top:78%;background-repeat:no-repeat;background-size:cover;background-position:center;}.card-title{font-size:2.1rem;line-height:2;font-weight:300;margin:.5rem 0;padding:0 3rem;text-align:left;}.card-desc{font-size:1.5rem;line-height:2;font-weight:300;margin:.5rem 0;text-align:left;padding:0 3rem;}.buttonList{width:100%;.add-cart--btn{border:none;background:none;cursor:pointer;max-width:15rem;margin:1rem auto;margin-bottom:1.5rem;background-color:", ";padding:.75rem 2.5rem;color:#eee;border-radius:.3rem;font-weight:bold;text-transform:uppercase;}}&:hover{transition:all .3s ease-out;transform:scale(1.05);box-shadow:0 12px 24px 0 rgba(0,0,0,0.07);}"], function (props) {
   return props.theme.bs;
 }, function (props) {
-  return props.theme.lightgrey;
-}, function (props) {
-  return props.theme.lightgrey;
+  return props.theme.pink;
 });
 /* harmony default export */ __webpack_exports__["default"] = (Item);
 
@@ -393,13 +372,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (function (amount) {
   var options = {
     style: 'currency',
-    currency: 'USD',
+    currency: 'BDT',
     minimumFractionDigits: 2
   }; // if its a whole, dollar amount, leave off the .00
 
   if (amount % 100 === 0) options.minimumFractionDigits = 0;
   var formatter = new Intl.NumberFormat('en-US', options);
-  return formatter.format(amount / 100);
+  return formatter.format(amount * 8.4 / 100);
 });
 
 /***/ }),

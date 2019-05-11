@@ -15,26 +15,28 @@ export default class Item extends Component {
     const { item } = this.props;
     return (
       <ItemStyles>
-        {item.image && <img src="https://picsum.photos/200/300" alt={item.title} /> }
+        
+        {item.image && <div className="item-thumb" style={ { backgroundImage: `url("https://picsum.photos/300/300")` } }></div> }
         <Title>
           <Link href={{
             pathname: '/item',
             query: { id: item.id }
           }}>
-            <a >{item.title}</a>
+            <a >{ formatMoney(item.price) }</a>
           </Link>
         </Title>
-        <PriceTag>{ formatMoney(item.price) }</PriceTag>
-        <p>{item.description}</p>
+        {/* <PriceTag>{ formatMoney(item.price) }</PriceTag> */}
+        <p className="card-title">{item.title}</p>
+        <p className="card-desc">{item.description}</p>
         <div className="buttonList">
-          <Link href={{
+          {/* <Link href={{
             pathname: "update",
             query: { id: item.id }
           }}>
             <a>Edit </a>
-          </Link>
-          <button>Add to Cart</button>
-          <button>Delete</button>
+          </Link> */}
+          <button className="add-cart--btn">Add to Cart</button>
+          {/* <button>Delete</button> */}
         </div>
       </ItemStyles>
     )
