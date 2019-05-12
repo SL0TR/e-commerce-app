@@ -28,11 +28,11 @@ const CREATE_ITEM_MUTATION = gql`
 
 export default class CreateItem extends Component {
   state = {
-    title: 'dasdasd',
-    description: 'dasdasd',
-    image: 'dog.jpg',
-    largeImage: 'ldog.jpg',
-    price: 4599
+    title: '',
+    description: '',
+    image: '',
+    largeImage: '',
+    price: 0
   }
 
   handleChange = e => {
@@ -82,6 +82,7 @@ export default class CreateItem extends Component {
               <label htmlFor="file">
                 Image
                 <input type="file" id="file" name="file" placeholder="Upload an image" onChange={ this.uploadFile } required />
+                {this.state.image && <img src={this.state.image} style={ {height: '200px', width: '200px'}} alt="upload preview" />}
               </label>
               <label htmlFor="title">
                 Title

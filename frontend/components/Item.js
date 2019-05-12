@@ -28,12 +28,12 @@ export default class Item extends Component {
         <p className="card-title">{item.title}</p>
         <p className="card-desc">{item.description}</p>
         <div className="buttonList">
-          {/* <Link href={{
-            pathname: "update",
+          <Link href={{
+            pathname: "/update",
             query: { id: item.id }
           }}>
             <a>Edit </a>
-          </Link> */}
+          </Link>
           <button className="add-cart--btn">Add to Cart</button>
           {/* <button>Delete</button> */}
         </div>

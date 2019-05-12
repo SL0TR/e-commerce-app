@@ -1,9 +1,9 @@
 import CreateItem from "../components/CreateItem";
 
 
-const Sell = props => (
+const Sell = ({ query }) => (
   <div>
-    <CreateItem />
+    <CreateItem id={query.id} />
   </div>
 );
 
