@@ -39,7 +39,11 @@ export default class Item extends Component {
           </Link>
         </Title>
         {/* <PriceTag>{ formatMoney(item.price) }</PriceTag> */}
-        <p className="card-title">{item.title}</p>
+        <p className="card-title">
+          {item.title.length > 25
+            ? ` ${item.title.substr(0, 22)}...`
+            : item.title}
+        </p>
         <p className="card-desc">
           {item.description.length > 70
             ? ` ${item.description.substr(0, 67)}...`

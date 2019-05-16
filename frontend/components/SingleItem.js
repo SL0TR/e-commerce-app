@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
+import Head from "next/head";
 import Error from "./ErrorMessage";
 import styled from "styled-components";
 
@@ -105,6 +106,9 @@ export default class SingleItem extends Component {
                 </p>
                 <button>Add to cart</button>
               </div>
+              <Head>
+                <title>E-commerce App | {data.item.title} </title>
+              </Head>
             </SingleItemStyles>
           );
         }}
