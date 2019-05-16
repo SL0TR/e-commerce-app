@@ -25,6 +25,7 @@ const Item = styled.div`
     margin: 0.5rem 0;
     padding: 0 3rem;
     text-align: left;
+    margin-top: 1rem;
   }
   .card-desc {
     font-size: 1.5rem;
@@ -32,7 +33,7 @@ const Item = styled.div`
     font-weight: 300;
     margin: 0.5rem 0;
     text-align: left;
-    height: 5rem;
+    height: 6rem;
     padding: 0 3rem;
   }
   .buttonList {
@@ -51,21 +52,19 @@ const Item = styled.div`
       margin-bottom: 1.5rem;
       background-color: ${props => props.theme.primary};
       padding: 1.5rem 1.5rem;
-      padding-right: 4.5rem;
       color: #eee;
       border-radius: 0.3rem;
       font-weight: bold;
       position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       text-transform: uppercase;
 
-      &::after {
-        content: "+";
-        position: absolute;
-        right: 1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        color: inherit;
-        font-weight: inherit;
+      img {
+        height: 1.5rem;
+        width: 1.5em;
+        margin-left: 1rem;
       }
     }
 

@@ -1,42 +1,35 @@
-import React, { Component } from 'react'
-import Header from '../components/Header';
-import Meta from '../components/Meta';
-import styled, { ThemeProvider, injectGlobal } from 'styled-components';
+import React, { Component } from "react";
+import Header from "../components/Header";
+import Meta from "../components/Meta";
+import styled, { ThemeProvider, injectGlobal } from "styled-components";
 
 const StyledPage = styled.div`
   background: white;
-  color:  ${ props => props.theme.black };
+  color: ${props => props.theme.black};
 `;
 
 const Inner = styled.div`
-  max-width: ${ props => props.theme.maxWidth };
+  max-width: ${props => props.theme.maxWidth};
   margin: 0 auto;
   padding: 2rem;
 `;
 
 const theme = {
-  primary: '#7B1842',
-  secondary: '#1F5846',
-  bg: '#E7F3FF',
-  green: '#888551',
-  orange: '#D07118',
-  pink: '#C66C98',
-  black: '#393939',
-  maxWidth: '1140px',
-  lightgrey: '#E1E1E1',
-  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)'
-}
-
+  primary: "#7B1842",
+  secondary: "#1F5846",
+  bg: "#E7F3FF",
+  green: "#888551",
+  orange: "#D07118",
+  pink: "#C66C98",
+  black: "#393939",
+  maxWidth: "1140px",
+  lightgrey: "#E1E1E1",
+  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)"
+};
 
 injectGlobal`
-  /* @font-face {
-    font-family: 'radnika_next';
-    src: url('/static/radnikanext-medium-webfont.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-  } */
   
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600|Roboto');
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700');
 
 
 
@@ -46,13 +39,15 @@ injectGlobal`
   }
   *, *:before, *:after {
     box-sizing: inherit;
+    margin: 0;
+    padding: 0;
   }
 
   body {
     padding: 0;
     margin: 0;
     font-size: 1.5rem;
-    line-height: 2;
+    line-height: 1.5;
     font-family: 'Roboto', sans-serif;
   }
 
@@ -63,6 +58,7 @@ injectGlobal`
   
   h1,h2,h3,h4,h5 {
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
   }
 
 
@@ -75,11 +71,9 @@ export default class Page extends Component {
         <StyledPage>
           <Meta />
           <Header />
-          <Inner>
-            {this.props.children}
-          </Inner>
+          <Inner>{this.props.children}</Inner>
         </StyledPage>
       </ThemeProvider>
-    )
+    );
   }
 }

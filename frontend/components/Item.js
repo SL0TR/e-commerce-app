@@ -4,9 +4,11 @@ import Title from "./styles/Title";
 import ItemStyles from "./styles/ItemStyles";
 import Link from "next/link";
 import DeleteItem from "./DeleteItem";
-// import formatMoney from '../lib/formatMoney';
+
+// Icons
 import editIcon from "../assets/icons/icons-edit.svg";
 import deleteIcon from "../assets/icons/icons-delete.svg";
+import cartIcon from "../assets/icons/icons-shopping-car.svg";
 
 export default class Item extends Component {
   static propTypes = {
@@ -30,7 +32,10 @@ export default class Item extends Component {
               query: { id: item.id }
             }}
           >
-            <a>{`BDT ${item.price}`}</a>
+            <a>
+              &#2547;
+              {item.price}
+            </a>
           </Link>
         </Title>
         {/* <PriceTag>{ formatMoney(item.price) }</PriceTag> */}
@@ -51,7 +56,9 @@ export default class Item extends Component {
               <img src={editIcon} alt="edit icon" />
             </a>
           </Link>
-          <button className="add-cart--btn">Add to Cart</button>
+          <button className="add-cart--btn">
+            Add to Cart <img src={cartIcon} alt="cart icon" />
+          </button>
           <DeleteItem id={item.id}>
             <img src={deleteIcon} alt="delete icon" />
           </DeleteItem>
