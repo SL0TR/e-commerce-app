@@ -76,7 +76,7 @@ const Item = styled.div`
       top: -2rem;
       z-index: 10;
       border-radius: 50%;
-      border: 2px solid ${props => props.theme.green};
+      background-color: ${props => props.theme.green};
       display: flex;
       justify-content: center;
       align-items: center;
@@ -90,14 +90,14 @@ const Item = styled.div`
     }
 
     .delete-item--btn {
-      border: 2px solid ${props => props.theme.primary};
+      background-color: ${props => props.theme.primary};
       left: initial;
       right: -2rem;
     }
   }
 
   &:hover {
-    transition: all 0.3s ease-out;
+    transition: all 0.3s;
     transform: scale(1.05);
     box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.07);
   }
