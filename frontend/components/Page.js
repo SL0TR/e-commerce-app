@@ -76,6 +76,7 @@ injectGlobal`
     margin: 2rem;
     text-transform: uppercase;
     color: ${theme.primary};
+    font-size: 3rem;
   }
 
   .fancy-title::before, .fancy-title::after {
