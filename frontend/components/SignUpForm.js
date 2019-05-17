@@ -99,10 +99,11 @@ export default class SignUpForm extends Component {
                   this.setState({ formError: `Passwords don't match!` });
                   return;
                 }
-                const res = await signup();
-                this.setState({ formError: null });
-
-                console.log(res);
+                try {
+                  const res = await signup();
+                  this.setState({ formError: null });
+                  console.log(res);
+                } catch (err) {}
               }}
             >
               <Error error={error} />
