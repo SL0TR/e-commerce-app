@@ -62,6 +62,34 @@ injectGlobal`
     margin: 0;
   }
 
+  input, button, textarea {
+    border: none;
+    background: none;
+  }
+
+  .fancy-title {
+    grid-column:  1 / -1;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-gap: 20px;
+    align-items: center;
+    margin: 2rem;
+    text-transform: uppercase;
+    color: ${theme.primary};
+  }
+
+  .fancy-title::before, .fancy-title::after {
+    display: block;
+    content: "";
+    height: 10px;
+    background: linear-gradient(to var(--direction, left), ${
+      theme.secondary
+    }, transparent)
+  }
+
+  .fancy-title::after {
+    --direction: right;
+  }
 
 `;
 

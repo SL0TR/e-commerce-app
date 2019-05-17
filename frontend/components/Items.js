@@ -36,6 +36,7 @@ export default class Items extends Component {
   render() {
     return (
       <Center>
+        <h2 className="fancy-title">Shop Products</h2>
         <Pagination page={this.props.page} />
         <Query
           query={ALL_ITEMS_QUERY}
