@@ -24,6 +24,7 @@ const theme = {
   black: "#393939",
   maxWidth: "1140px",
   lightgrey: "#E1E1E1",
+  red: "#ee5253",
   bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)"
 };
 

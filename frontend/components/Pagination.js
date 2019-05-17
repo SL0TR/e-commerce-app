@@ -26,7 +26,7 @@ const Pagination = props => (
         <PaginationStyles>
           <Head>
             <title>
-              E-commerce APP - Page {page} of {pages}
+              E-commerce App - Page {page} of {pages}
             </title>
           </Head>
           <Link

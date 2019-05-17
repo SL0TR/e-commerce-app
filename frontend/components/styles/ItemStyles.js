@@ -79,17 +79,18 @@ const Item = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 3rem;
-      width: 3rem;
+      box-shadow: ${props => props.theme.bs};
+      height: 5rem;
+      width: 5rem;
 
       img {
-        height: 1.2rem;
-        width: 1.2em;
+        height: 2rem;
+        width: 2em;
       }
     }
 
     .delete-item--btn {
-      background-color: ${props => props.theme.primary};
+      background-color: ${props => props.theme.red};
       left: initial;
       right: -2rem;
     }
@@ -99,6 +100,19 @@ const Item = styled.div`
     transition: all 0.3s;
     transform: scale(1.05);
     box-shadow: 0 12px 24px 0 rgba(0, 0, 0, 0.07);
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background-image: ${props =>
+      props.user
+        ? " linear-gradient(to top, rgba(255, 255, 255, 0) 0%,rgba(0, 0, 0, .5) 100% )"
+        : null};
   }
 `;
 

@@ -18,7 +18,7 @@ export default class Item extends Component {
   render() {
     const { item } = this.props;
     return (
-      <ItemStyles>
+      <ItemStyles user={true}>
         {item.image && (
           <div
             className="item-thumb"
@@ -45,8 +45,8 @@ export default class Item extends Component {
             : item.title}
         </p>
         <p className="card-desc">
-          {item.description.length > 70
-            ? ` ${item.description.substr(0, 67)}...`
+          {item.description.length > 60
+            ? ` ${item.description.substr(0, 57)}...`
             : item.description}
         </p>
         <div className="buttonList">
