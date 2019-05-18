@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 const loading = keyframes`
   from {
@@ -13,55 +13,52 @@ const loading = keyframes`
 `;
 
 const Form = styled.form`
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.05);
-  background: rgba(0, 0, 0, 0.02);
-  border: 5px solid white;
-  padding: 20px;
-  font-size: 1.5rem;
-  line-height: 1.5;
-  font-weight: 600;
-  label {
-    display: block;
-    margin-bottom: 1rem;
-  }
-  input,
-  textarea,
-  select {
-    width: 100%;
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid black;
-    &:focus {
-      outline: 0;
-      border-color: ${props => props.theme.red};
-    }
-  }
-  button,
-  input[type='submit'] {
-    width: auto;
-    background: red;
-    color: white;
-    border: 0;
-    font-size: 2rem;
-    font-weight: 600;
-    padding: 0.5rem 1.2rem;
-  }
+  max-width: 40rem;
+  margin: 0 auto;
+  box-shadow: ${props => props.theme.bs};
+  padding: 4rem;
+  border-radius: 1rem;
+
   fieldset {
-    border: 0;
-    padding: 0;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     &[disabled] {
       opacity: 0.5;
     }
-    &::before {
-      height: 10px;
-      content: '';
-      display: block;
-      background-image: linear-gradient(to right, #ff3019 0%, #e2b04a 50%, #ff3019 100%);
+
+    label[for="file"] {
+      position: relative;
+      top: 1.5rem;
     }
-    &[aria-busy='true']::before {
-      background-size: 50% auto;
-      animation: ${loading} 0.5s linear infinite;
+
+    input,
+    textarea {
+      border: 2px solid ${props => props.theme.green};
+      padding: 1.25rem 1rem;
+      border-radius: 0.2rem;
+      width: 100%;
+      margin: 3rem 0;
+
+      &::placeholder {
+        font-size: 1.8rem;
+      }
+    }
+
+    button {
+      border: none;
+      background-color: ${props => props.theme.primary};
+      padding: 1rem 4rem;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 1.8rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      margin: 1rem auto;
+      color: white;
     }
   }
 `;
