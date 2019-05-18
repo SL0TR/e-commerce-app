@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Mutation } from "react-apollo";
+import Router from "next/router";
 import gql from "graphql-tag";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
+import { CURRENT_USER_QUERY } from "./User";
 
 const CREATE_USER_MUTATION = gql`
   mutation CREATE_USER_MUTATION(
@@ -43,6 +45,7 @@ export default class SignUpForm extends Component {
             email,
             password
           }}
+          refetchQueries={[{ query: CURRENT_USER_QUERY }]}
         >
           {(signup, { loading, error }) => (
             <Form
@@ -58,6 +61,7 @@ export default class SignUpForm extends Component {
                   const res = await signup();
                   this.setState({ formError: null });
                   console.log(res);
+                  Router.push("/");
                 } catch (err) {}
               }}
             >
