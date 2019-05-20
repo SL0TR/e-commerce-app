@@ -62,6 +62,11 @@ injectGlobal`
     margin: 0;
   }
 
+  a, button {
+    font-family: 'Open Sans', sans-serif;
+
+  }
+
   input, button, textarea {
     border: none;
     background: none;
