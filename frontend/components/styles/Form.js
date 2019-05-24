@@ -30,6 +30,11 @@ const Form = styled.form`
       opacity: 0.5;
     }
 
+    label {
+      position: relative;
+      top: 2rem;
+    }
+
     label[for="file"] {
       position: relative;
       top: 1.5rem;

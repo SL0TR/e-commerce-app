@@ -3,7 +3,7 @@ import { Mutation, Query } from "react-apollo";
 import gql from "graphql-tag";
 import Router from "next/router";
 import Form from "./styles/Form";
-// import formatMoney from '../lib/formatMoney';
+import Button from "./styles/Button";
 import Error from "./ErrorMessage";
 
 const SINGLE_ITEM_QUERY = gql`
@@ -101,44 +101,37 @@ export default class UpdateItem extends Component {
                       />
                        {this.state.image && <img src={this.state.image} style={ {height: '200px', width: '200px'}} alt="upload preview" />}
                     </label> */}
-                    <label htmlFor="title">
-                      Title
-                      <input
-                        type="text"
-                        id="title"
-                        name="title"
-                        placeholder="Title"
-                        defaultValue={data.item.title}
-                        onChange={this.handleChange}
-                        required
-                      />
-                    </label>
-                    <label htmlFor="price">
-                      Price
-                      <input
-                        type="number"
-                        id="price"
-                        name="price"
-                        placeholder="Price"
-                        defaultValue={data.item.price}
-                        onChange={this.handleChange}
-                        required
-                      />
-                    </label>
-                    <label htmlFor="description">
-                      Description
-                      <textarea
-                        id="description"
-                        name="description"
-                        placeholder="Description"
-                        defaultValue={data.item.description}
-                        onChange={this.handleChange}
-                        required
-                      />
-                    </label>
-                    <button type="submit">
-                      Sav{loading ? "ing" : "e"} Changes
-                    </button>
+                    <label htmlFor="title">Title</label>
+                    <input
+                      type="text"
+                      id="title"
+                      name="title"
+                      placeholder="Title"
+                      defaultValue={data.item.title}
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <label htmlFor="price">Price</label>
+                    <input
+                      type="number"
+                      id="price"
+                      name="price"
+                      placeholder="Price"
+                      defaultValue={data.item.price}
+                      onChange={this.handleChange}
+                      required
+                    />
+                    <label htmlFor="description">Description</label>
+                    <textarea
+                      id="description"
+                      name="description"
+                      placeholder="Description"
+                      defaultValue={data.item.description}
+                      onChange={this.handleChange}
+                      required
+                      rows="6"
+                    />
+                    <Button>Sav{loading ? "ing" : "e"} Changes</Button>
                   </fieldset>
                 </Form>
               )}
