@@ -4,6 +4,8 @@ const { randomBytes } = require("crypto");
 const { promisify } = require("util");
 const tokenTimeLimit = 3600000;
 const jwtTokenExpiryTime = 1000 * 60 * 60 * 24 * 365;
+const { transport, makeANiceEmail } = require("../mail");
+
 const Mutation = {
   async createItem(parent, args, ctx, info) {
     // TODO: Check if they are logged in
@@ -103,13 +105,15 @@ const Mutation = {
     return { message: "Sayonara" };
   },
   async requestReset(parent, args, ctx, info) {
-    //1.check if this is a real user
+    //check if this is a real user
 
     const user = await ctx.db.query.user({ where: { email: args.email } });
     if (!user) {
       throw new Error(`No such user exists with ${args.email}`);
     }
-    //2. set a reset token and expiry on that user
+
+    //set a reset token and expiry on that user
+
     const randomByetesPromisified = promisify(randomBytes);
     const resetToken = (await randomByetesPromisified(20)).toString("hex");
     const resetTokenExpiry = Date.now() + tokenTimeLimit; //1 hour from now;
@@ -117,9 +121,21 @@ const Mutation = {
       where: { email: args.email },
       data: { resetToken, resetTokenExpiry }
     });
-    return { message: "Thanks!" };
 
-    //3. Email them that reset token.
+    //email them that reset token.
+    const mailRes = await transport.sendMail({
+      from: "yomaimsj@gmail.com",
+      to: user.email,
+      subject: "Your Password Reset Token",
+      html: makeANiceEmail(
+        `Your Password Reset Token is here! \n\n <a href="${
+          process.env.FRONTEND_URL
+        }/reset?resetToken=${resetToken}">Click Here to Reset Password!`
+      )
+    });
+
+    //return the message
+    return { message: "Thanks!" };
   },
   async resetPassword(parent, args, ctx, info) {
     // check if its a legit reset token
@@ -130,7 +146,6 @@ const Mutation = {
         resetTokenExpiry_gte: Date.now() - tokenTimeLimit
       }
     });
-    console.log(user);
     if (!user) {
       throw new Error(`This token is either invalid or expired`);
     }
