@@ -47,19 +47,6 @@ const Form = styled.form`
         font-size: 1.8rem;
       }
     }
-
-    button {
-      border: none;
-      background-color: ${props => props.theme.primary};
-      padding: 1rem 4rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      font-size: 1.8rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-      margin: 1rem auto;
-      color: white;
-    }
   }
 `;
 
