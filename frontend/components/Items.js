@@ -1,7 +1,5 @@
-import React, { Component } from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-
 import styled from "styled-components";
 import Item from "./Item";
 import Pagination from "./Pagination";
@@ -32,36 +30,33 @@ const ItemsList = styled.div`
   margin: 5rem auto;
 `;
 
-export default class Items extends Component {
-  render() {
-    return (
-      <Center>
-        <h2 className="fancy-title">Shop Products</h2>
-        <Pagination page={this.props.page} />
-        <Query
-          query={ALL_ITEMS_QUERY}
-          fetchPolicy="network-only"
-          variables={{
-            skip: this.props.page * perPage - perPage
-          }}
-        >
-          {({ data, error, loading }) => {
-            if (loading) return <p>Loading...</p>;
-            if (error) return <p>Error! : {error.message} </p>;
-            console.log(data);
-            return (
-              <ItemsList>
-                {data.items.map(item => {
-                  return <Item item={item} key={item.id} />;
-                })}
-              </ItemsList>
-            );
-          }}
-        </Query>
-        <Pagination page={this.props.page} />
-      </Center>
-    );
-  }
-}
+const Items = props => (
+  <Center>
+    <h2 className="fancy-title">Shop Products</h2>
+    <Pagination page={props.page} />
+    <Query
+      query={ALL_ITEMS_QUERY}
+      fetchPolicy="network-only"
+      variables={{
+        skip: props.page * perPage - perPage
+      }}
+    >
+      {({ data, error, loading }) => {
+        if (loading) return <p>Loading...</p>;
+        if (error) return <p>Error! : {error.message} </p>;
+        console.log(data);
+        return (
+          <ItemsList>
+            {data.items.map(item => {
+              return <Item item={item} key={item.id} />;
+            })}
+          </ItemsList>
+        );
+      }}
+    </Query>
+    <Pagination page={props.page} />
+  </Center>
+);
 
 export { ALL_ITEMS_QUERY };
+export default Items;
