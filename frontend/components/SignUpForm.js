@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import Form from "./styles/Form";
 import Error from "./ErrorMessage";
 import { CURRENT_USER_QUERY } from "./User";
+import Button from './styles/Button';
 
 const CREATE_USER_MUTATION = gql`
   mutation CREATE_USER_MUTATION(
@@ -101,7 +102,7 @@ export default class SignUpForm extends Component {
                   onChange={this.handleChange}
                 />
 
-                <button disabled={loading}>Sign Up</button>
+                <Button disabled={loading}>Sign Up</Button>
               </fieldset>
             </Form>
           )}

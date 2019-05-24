@@ -104,12 +104,12 @@ export default class SignInForm extends Component {
 
         {passwordReset && (
           <>
-            <h2 className="fancy-title">Password Reset</h2>
+            <h2 className="fancy-title">Request Reset</h2>
             <Mutation
               mutation={REQUEST_RESET_MUTATION}
               variables={{ email: getTokenEmail }}
             >
-              {(requestReset, { error, loading }) => (
+              {(requestReset, { error, loading, called }) => (
                 <Form
                   onSubmit={async e => {
                     e.preventDefault();
@@ -123,6 +123,9 @@ export default class SignInForm extends Component {
                 >
                   <fieldset>
                     <Error error={error} />
+                    {!error && !loading && called && (
+                      <p>Success, Check your email!</p>
+                    )}
                     <input
                       required
                       type="email"

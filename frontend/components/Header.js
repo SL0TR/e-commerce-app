@@ -1,18 +1,18 @@
-import Nav from './Nav';
-import Link from 'next/link';
-import styled from 'styled-components';
-import Router from 'next/router';
-import Nprogress from 'nprogress';
+import Nav from "./Nav";
+import Link from "next/link";
+import styled from "styled-components";
+import Router from "next/router";
+import Nprogress from "nprogress";
 
 Router.onRouteChangeStart = () => {
   Nprogress.start();
-}
+};
 Router.onRouteChangeComplete = () => {
   Nprogress.done();
-}
+};
 Router.onRouteChangeError = () => {
-  console.log('onROuteChangeError Triggered ')
-}
+  console.log("onROuteChangeError Triggered ");
+};
 
 const Logo = styled.h1`
   margin-bottom: 0;
@@ -32,7 +32,6 @@ const Logo = styled.h1`
     margin: 0;
     text-align: center;
   }
-
 `;
 
 const StyledHeader = styled.header`
@@ -79,11 +78,11 @@ const StyledHeader = styled.header`
 const Header = () => (
   <StyledHeader>
     <div className="bar">
-    <Logo>
-      <Link href="/">
-        <img className="nav-logo" src="/static/ecommerce-icon-2.png" alt=""/>
-      </Link>
-    </Logo>
+      <Logo>
+        <Link href="/">
+          <img className="nav-logo" src="/static/ecommerce-icon-2.png" alt="" />
+        </Link>
+      </Logo>
       <Nav />
     </div>
     <div className="sub-bar">
@@ -91,6 +90,6 @@ const Header = () => (
     </div>
     <div>Cart</div>
   </StyledHeader>
-)
+);
 
 export default Header;
