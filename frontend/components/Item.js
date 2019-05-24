@@ -6,9 +6,9 @@ import Link from "next/link";
 import DeleteItem from "./DeleteItem";
 
 // Icons
-import editIcon from "../assets/icons/icons-edit.svg";
-import deleteIcon from "../assets/icons/icons-delete.svg";
-import cartIcon from "../assets/icons/icons-shopping-car.svg";
+import editIcon from "../static/icons-edit.svg";
+import deleteIcon from "../static/icons-delete.svg";
+import cartIcon from "../static/icons-shopping-car.svg";
 
 export default class Item extends Component {
   static propTypes = {
