@@ -131,7 +131,7 @@ export default class SignInForm extends Component {
                       value={getTokenEmail}
                       onChange={this.handleChange}
                     />
-                    <Button>Send Verification Code</Button>
+                    <Button color="secondary">Send Verification Code</Button>
                   </fieldset>
                 </Form>
               )}
