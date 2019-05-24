@@ -4,7 +4,7 @@ const Button = styled.button`
    {
     border: none;
     background-color: ${props =>
-      props.type === "flat"
+      props.bType === "flat"
         ? "white"
         : props.theme[props.color ? props.color : "primary"]};
     padding: 1rem 4rem;
@@ -13,13 +13,13 @@ const Button = styled.button`
     font-size: 1.8rem;
     border: 1px solid
       ${props =>
-        props.type === "flat"
+        props.bType === "flat"
           ? props.theme[props.color ? props.color : "primary"]
           : "transparent"};
     border-radius: 0.5rem;
     cursor: pointer;
     color: ${props =>
-      props.type === "flat"
+      props.bType === "flat"
         ? props.theme[props.color ? props.color : "primary"]
         : "white"};
     margin: 1.5rem auto;

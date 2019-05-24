@@ -79,7 +79,7 @@ const SignInForm = () => {
                   />
                   <Button disabled={loading}>Sign In</Button>
                   <Button
-                    type="flat"
+                    bType="flat"
                     disabled={loading}
                     onClick={e => setPasswordReset(true)}
                   >
@@ -125,6 +125,16 @@ const SignInForm = () => {
                     onChange={e => setTokenEmail(e.target.value)}
                   />
                   <Button color="secondary">Send Verification Code</Button>
+                  <Button
+                    bType="flat"
+                    color="secondary"
+                    onClick={e => {
+                      e.preventDefault();
+                      setPasswordReset(false);
+                    }}
+                  >
+                    Back
+                  </Button>
                 </fieldset>
               </Form>
             )}
