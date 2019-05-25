@@ -26,9 +26,9 @@ const REQUEST_RESET_MUTATION = gql`
 `;
 
 const SignInForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [getTokenEmail, setTokenEmail] = useState("");
+  const email = useFormInput("");
+  const password = useFormInput("");
+  const getTokenEmail = useFormInput("");
   const [passwordReset, setPasswordReset] = useState(false);
   const alert = useAlert();
 
@@ -39,7 +39,7 @@ const SignInForm = () => {
           <h2 className="fancy-title">Sign IN</h2>
           <Mutation
             mutation={SIGNIN_USER_MUTATION}
-            variables={{ email, password }}
+            variables={{ email: email.value, password: password.value }}
             refetchQueries={[{ query: CURRENT_USER_QUERY }]}
           >
             {(signin, { error, loading }) => (
@@ -66,16 +66,14 @@ const SignInForm = () => {
                     type="email"
                     placeholder="Enter Email"
                     name="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    {...email}
                   />
                   <input
                     required
                     value={password}
                     type="password"
                     placeholder="Enter Password"
-                    name="password"
-                    onChange={e => setPassword(e.target.value)}
+                    {...password}
                   />
                   <Button disabled={loading}>Sign In</Button>
                   <Button
@@ -97,7 +95,7 @@ const SignInForm = () => {
           <h2 className="fancy-title">Request Reset</h2>
           <Mutation
             mutation={REQUEST_RESET_MUTATION}
-            variables={{ email: getTokenEmail }}
+            variables={{ email: getTokenEmail.value }}
           >
             {(requestReset, { error, loading, called }) => (
               <Form
@@ -121,8 +119,7 @@ const SignInForm = () => {
                     type="email"
                     placeholder="Enter Email"
                     name="getTokenEmail"
-                    value={getTokenEmail}
-                    onChange={e => setTokenEmail(e.target.value)}
+                    {...getTokenEmail}
                   />
                   <Button color="secondary">Send Verification Code</Button>
                   <Button
@@ -144,5 +141,17 @@ const SignInForm = () => {
     </>
   );
 };
+
+function useFormInput(initialValue) {
+  const [value, setValue] = useState(initialValue);
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
+
+  return {
+    value,
+    onChange: handleChange
+  };
+}
 
 export default SignInForm;
