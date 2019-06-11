@@ -1,9 +1,11 @@
-import CreateItem from "../components/CreateItem";
-
+import CreateItem from '../components/CreateItem';
+import PleaseSignIn from '../components/PleaseSignIn';
 
 const Sell = ({ query }) => (
   <div>
-    <CreateItem id={query.id} />
+    <PleaseSignIn>
+      <CreateItem id={query.id} />
+    </PleaseSignIn>
   </div>
 );
 

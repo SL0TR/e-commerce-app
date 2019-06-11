@@ -1,5 +1,4 @@
 {
-  "rules": {
-    "prettier.singleQuotes": true
-  }
+  "singleQuote": true,
+  "trailingComma": "all"
 }

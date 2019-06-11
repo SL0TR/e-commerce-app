@@ -1,8 +1,8 @@
-import Nav from "./Nav";
-import Link from "next/link";
-import styled from "styled-components";
-import Router from "next/router";
-import Nprogress from "nprogress";
+import Nav from './Nav';
+import Link from 'next/link';
+import styled from 'styled-components';
+import Router from 'next/router';
+import Nprogress from 'nprogress';
 
 Router.onRouteChangeStart = () => {
   Nprogress.start();
@@ -11,7 +11,7 @@ Router.onRouteChangeComplete = () => {
   Nprogress.done();
 };
 Router.onRouteChangeError = () => {
-  console.log("onROuteChangeError Triggered ");
+  console.log('onROuteChangeError Triggered ');
 };
 
 const Logo = styled.h1`
@@ -36,34 +36,23 @@ const Logo = styled.h1`
 
 const StyledHeader = styled.header`
   .bar {
-    box-shadow: 0px 1px 3px 2px rgba(0,0,0, .1);
+    box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.1);
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
     align-items: stretch;
-    /* background-color: ${props => props.theme.primary}; */
-
+    background-color: ${props => props.theme.primary};
 
     .nav-logo {
-      height: 5.3rem;
-      width: 5.3rem;
-      border-radius: 50%;
-      padding: .5rem;
-      border: 1px solid ${props => props.theme.primary};
-
-      &:hover {
-        transition: all .3s;
-        cursor: pointer;
-        transform: scale(1.03);
-        padding: .1rem;
-      }
-
+      height: 4.3rem;
+      width: 4.3rem;
+      margin: 0.5rem 0;
+      margin-left: 2rem;
     }
 
     @media (max-width: 1300px) {
       grid-template-columns: 1fr;
       justify-content: center;
-
     }
 
     .sub-bar {
@@ -71,7 +60,6 @@ const StyledHeader = styled.header`
       border-bottom: 10px solid ${props => props.theme.lightgrey};
       grid-template-columns: 1fr auto;
     }
-
   }
 `;
 
@@ -80,7 +68,7 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <img className="nav-logo" src="/static/ecommerce-icon-2.png" alt="" />
+          <img className="nav-logo" src="/static/shopping.svg" alt="" />
         </Link>
       </Logo>
       <Nav />

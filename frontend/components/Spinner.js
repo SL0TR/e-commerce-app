@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 const spin = keyframes`
   from {
@@ -38,13 +38,13 @@ const SpinnerStyled = styled.div`
 const Spinner = () => {
   return (
     <SpinnerStyled>
-      <div class="multi-spinner-container">
-        <div class="multi-spinner">
-          <div class="multi-spinner">
-            <div class="multi-spinner">
-              <div class="multi-spinner">
-                <div class="multi-spinner">
-                  <div class="multi-spinner" />
+      <div className="multi-spinner-container">
+        <div className="multi-spinner">
+          <div className="multi-spinner">
+            <div className="multi-spinner">
+              <div className="multi-spinner">
+                <div className="multi-spinner">
+                  <div className="multi-spinner" />
                 </div>
               </div>
             </div>
