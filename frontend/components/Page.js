@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import Header from "../components/Header";
-import Meta from "../components/Meta";
-import styled, { createGlobalStyle, ThemeProvider  } from "styled-components";
+import React, { Component } from 'react';
+import Header from '../components/Header';
+import Meta from '../components/Meta';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const StyledPage = styled.div`
   background: white;
@@ -15,17 +15,17 @@ const Inner = styled.div`
 `;
 
 const theme = {
-  primary: "#7B1842",
-  secondary: "#1F5846",
-  bg: "#E7F3FF",
-  green: "#888551",
-  orange: "#D07118",
-  pink: "#C66C98",
-  black: "#393939",
-  maxWidth: "1140px",
-  lightgrey: "#E1E1E1",
-  red: "#ee5253",
-  bs: "0 12px 24px 0 rgba(0, 0, 0, 0.09)"
+  primary: '#7B1842',
+  secondary: '#1F5846',
+  bg: '#E7F3FF',
+  green: '#888551',
+  orange: '#D07118',
+  pink: '#C66C98',
+  black: '#393939',
+  maxWidth: '1140px',
+  lightgrey: '#E1E1E1',
+  red: '#ee5253',
+  bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
 };
 
 const GlobalStyle = createGlobalStyle`
@@ -95,9 +95,26 @@ input, button, textarea {
 .fancy-title::after {
   --direction: right;
 }
-`
 
-
+.alert-enter {
+    opacity: 0;
+    /* transform: scale(0.9); */
+  }
+  .alert-enter-active {
+    opacity: 1;
+    /* transform: translateX(0); */
+    transition: opacity 300ms, transform 300ms;
+  }
+  .alert-exit {
+    opacity: 1;
+  }
+  .alert-exit-active {
+    opacity: 0;
+    /* transform: scale(0.9); */
+    transition: opacity 300ms, transform 300ms;
+  }
+  
+`;
 
 export default class Page extends Component {
   render() {

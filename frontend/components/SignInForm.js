@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import Form from "./styles/Form";
-import Button from "./styles/Button";
-import { Mutation } from "react-apollo";
-import { useAlert } from "react-alert";
-import gql from "graphql-tag";
-import Router from "next/router";
-import Error from "./ErrorMessage";
-import { CURRENT_USER_QUERY } from "./User";
+import React, { useState } from 'react';
+import Form from './styles/Form';
+import Button from './styles/Button';
+import { Mutation } from 'react-apollo';
+import { useAlert } from 'react-alert';
+import gql from 'graphql-tag';
+import Router from 'next/router';
+import Error from './ErrorMessage';
+import { CURRENT_USER_QUERY } from './User';
 const SIGNIN_USER_MUTATION = gql`
   mutation SIGNIN_USER_MUTATION($email: String!, $password: String!) {
     signin(email: $email, password: $password) {
@@ -26,9 +26,9 @@ const REQUEST_RESET_MUTATION = gql`
 `;
 
 const SignInForm = () => {
-  const email = useFormInput("");
-  const password = useFormInput("");
-  const getTokenEmail = useFormInput("");
+  const email = useFormInput('');
+  const password = useFormInput('');
+  const getTokenEmail = useFormInput('');
   const [passwordReset, setPasswordReset] = useState(false);
   const alert = useAlert();
 
@@ -47,7 +47,7 @@ const SignInForm = () => {
                 method="post"
                 onSubmit={async e => {
                   e.preventDefault();
-                  console.log("pressed submit");
+                  console.log('pressed submit');
                   try {
                     const res = await signin();
                     console.log(res);
@@ -55,7 +55,7 @@ const SignInForm = () => {
                       "You have successfully logged in, ${
                         res.data.signin.name
                       } `);
-                    Router.push("/");
+                    Router.push('/');
                   } catch (e) {}
                 }}
               >
@@ -150,7 +150,7 @@ function useFormInput(initialValue) {
 
   return {
     value,
-    onChange: handleChange
+    onChange: handleChange,
   };
 }
 
