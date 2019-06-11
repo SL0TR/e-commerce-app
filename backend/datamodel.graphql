@@ -14,7 +14,7 @@ type User {
   password: String!
   resetToken: String
   resetTokenExpiry: Float
-  permissions: [Permission]  @scalarList(strategy: RELATION)
+  permissions: [Permission] @scalarList(strategy: RELATION)
 }
 
 type Item {
@@ -24,7 +24,5 @@ type Item {
   image: String
   largeImage: String
   price: Int!
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-  # user: User!
+  user: User!
 }
