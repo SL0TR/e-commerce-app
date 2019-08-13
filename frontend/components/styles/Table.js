@@ -20,6 +20,21 @@ const Table = styled.table`
         width: 100%;
       }
     }
+
+    label {
+      background: transparent;
+      display: block;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    input[type='checkbox'] {
+      z-index: 10;
+      position: relative;
+    }
   }
   tr {
     &:hover {

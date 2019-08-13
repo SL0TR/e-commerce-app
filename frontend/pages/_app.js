@@ -1,10 +1,10 @@
-import App, { Container } from "next/app";
-import { Provider as AlertProvider } from "react-alert";
-import AlertTemplate from "react-alert-template-basic";
-import { ApolloProvider } from "react-apollo";
-import withApollo from "../lib/withData";
-import Page from "../components/Page";
-import { options } from "../config";
+import App, { Container } from 'next/app';
+import { Provider as AlertProvider } from 'react-alert';
+import AlertTemplate from 'react-alert-template-basic';
+import { ApolloProvider } from 'react-apollo';
+import withApollo from '../lib/withData';
+import Page from '../components/Page';
+import { options } from '../config';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
