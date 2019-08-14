@@ -32,8 +32,31 @@ const RemoveButton = styled.button`
 const RemoveFromCart = ({ id }) => {
   const alert = useAlert();
 
+  const update = (cache, payload) => {
+    //read the cache
+    const data = cache.readQuery({ query: CURRENT_USER_QUERY });
+
+    //remove the item from the cart
+    const cartItemId = payload.data.removeFromCart.id;
+    data.me.cart = data.me.cart.filter(cartItem => cartItem.id !== cartItemId);
+
+    //write it back to the cache
+    cache.writeQuery({ query: CURRENT_USER_QUERY, data });
+  };
+
   return (
-    <Mutation mutation={REMOVE_FROM_CART_MUTATION} variables={{ id }}>
+    <Mutation
+      mutation={REMOVE_FROM_CART_MUTATION}
+      variables={{ id }}
+      update={update}
+      optimisticResponse={{
+        __typename: 'Mutation',
+        removeFromCart: {
+          __typename: 'CartItem',
+          id,
+        },
+      }}
+    >
       {(removeFromCart, { loading, error }) => (
         <RemoveButton
           disabled={loading}
