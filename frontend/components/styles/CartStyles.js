@@ -14,13 +14,18 @@ const CartStyles = styled.div`
   transition: all 0.3s;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   z-index: 5;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
   ${props => props.open && `transform: translateX(0);`};
   header {
     border-bottom: 5px solid ${props => props.theme.black};
     margin-bottom: 2rem;
     padding-bottom: 2rem;
+
+    h2 {
+      margin-top: 3rem;
+    }
   }
   footer {
     border-top: 10px double ${props => props.theme.black};
@@ -39,7 +44,7 @@ const CartStyles = styled.div`
     margin: 0;
     padding: 0;
     list-style: none;
-    overflow: scroll;
+    flex-grow: 1;
   }
 `;
 

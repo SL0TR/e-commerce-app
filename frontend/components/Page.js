@@ -64,6 +64,13 @@ h1,h2,h3,h4,h5 {
 a, button {
   font-family: 'Open Sans', sans-serif;
 
+  &:focus,
+  :active {
+    outline: 0;
+    border: 0;
+  }
+
+
 }
 
 input, button, textarea {
