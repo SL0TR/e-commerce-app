@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import RemoveFromCart from './RemoveFromCart';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
   border-bottom: 1px solid ${props => props.theme.lightgrey};
   display: grid;
   align-items: center;
+  padding-right: 3rem;
   grid-template-columns: auto 1fr auto;
 
   img {
@@ -17,6 +19,7 @@ const CartItem = ({ cartItem }) => {
   const {
     item: { title, price, image },
     quantity,
+    id,
   } = cartItem;
 
   return (
@@ -31,6 +34,7 @@ const CartItem = ({ cartItem }) => {
           </em>
         </h4>
       </div>
+      <RemoveFromCart id={id} />
     </CartItemStyles>
   );
 };
