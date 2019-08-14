@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Item = styled.div`
   background: white;
@@ -42,7 +42,7 @@ const Item = styled.div`
     button,
     a {
       border: none;
-      background: none;
+      /* background: none; */
       text-decoration: none;
       cursor: pointer;
     }
@@ -103,7 +103,7 @@ const Item = styled.div`
   }
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -111,7 +111,7 @@ const Item = styled.div`
     height: 20%;
     background-image: ${props =>
       props.user
-        ? " linear-gradient(to top, rgba(255, 255, 255, 0) 0%,rgba(0, 0, 0, .5) 100% )"
+        ? ' linear-gradient(to top, rgba(255, 255, 255, 0) 0%,rgba(0, 0, 0, .5) 100% )'
         : null};
   }
 `;

@@ -1,18 +1,19 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import Title from "./styles/Title";
-import ItemStyles from "./styles/ItemStyles";
-import Link from "next/link";
-import DeleteItem from "./DeleteItem";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Title from './styles/Title';
+import ItemStyles from './styles/ItemStyles';
+import Link from 'next/link';
+import DeleteItem from './DeleteItem';
 
 // Icons
-import editIcon from "../static/icons-edit.svg";
-import deleteIcon from "../static/icons-delete.svg";
-import cartIcon from "../static/icons-shopping-car.svg";
+import editIcon from '../static/icons-edit.svg';
+import deleteIcon from '../static/icons-delete.svg';
+import cartIcon from '../static/icons-shopping-car.svg';
+import AddToCart from './AddToCart';
 
 export default class Item extends Component {
   static propTypes = {
-    item: PropTypes.object.isRequired
+    item: PropTypes.object.isRequired,
   };
 
   render() {
@@ -28,8 +29,8 @@ export default class Item extends Component {
         <Title>
           <Link
             href={{
-              pathname: "/item",
-              query: { id: item.id }
+              pathname: '/item',
+              query: { id: item.id },
             }}
           >
             <a>
@@ -52,17 +53,15 @@ export default class Item extends Component {
         <div className="buttonList">
           <Link
             href={{
-              pathname: "/update",
-              query: { id: item.id }
+              pathname: '/update',
+              query: { id: item.id },
             }}
           >
             <a className="edit-item--btn">
               <img src={editIcon} alt="edit icon" />
             </a>
           </Link>
-          <button className="add-cart--btn">
-            Add to Cart <img src={cartIcon} alt="cart icon" />
-          </button>
+          <AddToCart id={item.id} />
           <DeleteItem id={item.id}>
             <img src={deleteIcon} alt="delete icon" />
           </DeleteItem>

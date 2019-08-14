@@ -24,6 +24,15 @@ const Button = styled.button`
         : 'white'};
     margin: 1.5rem auto;
     display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      height: 1.5rem;
+      width: 1.5em;
+      margin-left: 1rem;
+    }
 
     &:disabled {
       background-color: ${props => props.theme.lightgrey};
