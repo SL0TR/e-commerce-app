@@ -24,6 +24,7 @@
     "react-alert-template-basic": "^1.0.0",
     "react-apollo": "^2.5.6",
     "react-dom": "16.8.6",
+    "react-stripe-checkout": "^2.6.3",
     "react-transition-group": "^4.1.1",
     "styled-components": "^4.2.0"
   },
