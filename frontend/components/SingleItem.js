@@ -1,9 +1,10 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
-import { Query } from "react-apollo";
-import Head from "next/head";
-import Error from "./ErrorMessage";
-import styled from "styled-components";
+import React, { Component } from 'react';
+import gql from 'graphql-tag';
+import { Query } from 'react-apollo';
+import Head from 'next/head';
+import Error from './ErrorMessage';
+import styled from 'styled-components';
+import AddToCart from './AddToCart';
 
 const SINGLE_ITEM_QUERY = gql`
   query SINGLE_ITEM_QUERY($id: ID!) {
@@ -57,22 +58,7 @@ const SingleItemStyles = styled.div`
     }
 
     button {
-      background: none;
-      border: none;
-      border: 2px solid ${props => props.theme.primary};
-      color: ${props => props.theme.primary};
-      padding: 1.2rem 3rem;
-      margin: 1rem 0;
-      border-radius: 0.5rem;
-      text-transform: uppercase;
-      font-weight: bold;
-      cursor: pointer;
-
-      &:hover {
-        transition: all 0.3s;
-        background-color: ${props => props.theme.primary};
-        color: white;
-      }
+      margin: 0;
     }
   }
 `;
@@ -83,7 +69,7 @@ export default class SingleItem extends Component {
       <Query
         query={SINGLE_ITEM_QUERY}
         variables={{
-          id: this.props.id
+          id: this.props.id,
         }}
       >
         {({ error, loading, data }) => {
@@ -104,7 +90,7 @@ export default class SingleItem extends Component {
                   &#2547;
                   {data.item.price}
                 </p>
-                <button>Add to cart</button>
+                <AddToCart id={this.props.id} />
               </div>
               <Head>
                 <title>E-commerce App | {data.item.title} </title>
