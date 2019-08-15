@@ -16,12 +16,12 @@ const CartItemStyles = styled.li`
 `;
 
 const CartItem = ({ cartItem }) => {
+  if (!cartItem.item) return null;
   const {
     item: { title, price, image },
     quantity,
     id,
   } = cartItem;
-
   return (
     <CartItemStyles>
       <img width="75" height="75" src={image} alt={title} />
