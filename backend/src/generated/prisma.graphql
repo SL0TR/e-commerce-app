@@ -1,5 +1,5 @@
 # source: https://eu1.prisma.sh/mohaimin-islam-4338e1/e-commerce-app/dev
-# timestamp: Wed Aug 14 2019 16:12:49 GMT+0600 (Bangladesh Standard Time)
+# timestamp: Thu Aug 15 2019 23:42:29 GMT+0600 (Bangladesh Standard Time)
 
 type AggregateCartItem {
   count: Int!
@@ -21,7 +21,7 @@ type BatchPayload {
 type CartItem implements Node {
   id: ID!
   quantity: Int!
-  item: Item!
+  item: Item
   user: User!
 }
 
@@ -38,7 +38,7 @@ type CartItemConnection {
 input CartItemCreateInput {
   id: ID
   quantity: Int
-  item: ItemCreateOneInput!
+  item: ItemCreateOneInput
   user: UserCreateOneWithoutCartInput!
 }
 
@@ -50,7 +50,7 @@ input CartItemCreateManyWithoutUserInput {
 input CartItemCreateWithoutUserInput {
   id: ID
   quantity: Int
-  item: ItemCreateOneInput!
+  item: ItemCreateOneInput
 }
 
 """An edge in a connection."""
@@ -186,7 +186,7 @@ input CartItemSubscriptionWhereInput {
 
 input CartItemUpdateInput {
   quantity: Int
-  item: ItemUpdateOneRequiredInput
+  item: ItemUpdateOneInput
   user: UserUpdateOneRequiredWithoutCartInput
 }
 
@@ -217,7 +217,7 @@ input CartItemUpdateManyWithWhereNestedInput {
 
 input CartItemUpdateWithoutUserDataInput {
   quantity: Int
-  item: ItemUpdateOneRequiredInput
+  item: ItemUpdateOneInput
 }
 
 input CartItemUpdateWithWhereUniqueWithoutUserInput {
@@ -441,9 +441,11 @@ input ItemUpdateManyMutationInput {
   price: Int
 }
 
-input ItemUpdateOneRequiredInput {
+input ItemUpdateOneInput {
   create: ItemCreateInput
   connect: ItemWhereUniqueInput
+  disconnect: Boolean
+  delete: Boolean
   update: ItemUpdateDataInput
   upsert: ItemUpsertNestedInput
 }
