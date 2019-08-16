@@ -10,6 +10,7 @@ const { resetPassword } = require("./mutations/resetPassword");
 const { updatePermissions } = require("./mutations/updatePermissions");
 const { addToCart } = require("./mutations/addToCart");
 const { removeFromCart } = require("./mutations/removeFromCart");
+const { createOrder } = require("./mutations/createOrder");
 
 const Mutation = {
   createItem,
@@ -22,7 +23,8 @@ const Mutation = {
   resetPassword,
   updatePermissions,
   addToCart,
-  removeFromCart
+  removeFromCart,
+  createOrder
 };
 
 module.exports = Mutation;

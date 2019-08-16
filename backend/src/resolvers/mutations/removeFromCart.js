@@ -1,5 +1,4 @@
 async function removeFromCart(parent, args, ctx, info) {
-  console.log("triggered");
   // find the cart item
   const where = { id: args.id };
   const cartItem = await ctx.db.query.cartItem({ where }, `{id, user { id }}`);

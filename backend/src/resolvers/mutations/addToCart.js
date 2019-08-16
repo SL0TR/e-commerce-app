@@ -17,7 +17,6 @@ async function addToCart(parent, args, ctx, info) {
   // check if the item is already in their cart and increament by 1 if it is
 
   if (existingCartItem) {
-    console.log("This item is already in their cart");
     return ctx.db.mutation.updateCartItem(
       {
         where: { id: existingCartItem.id },
