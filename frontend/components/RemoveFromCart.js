@@ -63,7 +63,7 @@ const RemoveFromCart = ({ id }) => {
           onClick={() => {
             console.log('clicked');
             removeFromCart().catch(error => {
-              alert.success(`Oops: ${error.message}`);
+              alert.error(`Oops: ${error.message}`);
             });
           }}
           title="Delete Item"
